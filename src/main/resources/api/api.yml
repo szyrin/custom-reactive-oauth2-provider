@@ -1,0 +1,32 @@
+openapi: 3.0.3
+info:
+  title: Sample API
+  version: '1.0'
+  description: 'Sample API'
+security:
+  - OAuth2: []
+components:
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          scopes: {}
+          authorizationUrl: 'http://localhost:8080/api/auth/authorize'
+          tokenUrl: 'http://localhost:8080/api/auth/token'
+paths:
+  /v0/sample:
+    get:
+      operationId: get-sample
+      summary: Sample operation
+      description: Sample operation
+      responses:
+        200:
+          description: Sample response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  sample:
+                    type: string
